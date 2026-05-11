@@ -1,0 +1,37 @@
+<?php
+
+namespace App\Http\Controllers\API\Auth;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\UserPerpustakaan;
+
+class LoginUserController extends Controller
+{
+    public function login(Request $request)
+    {
+        $request->validate([
+            'nim' => 'required',
+            'nama' => 'required'
+        ]);
+
+        $user = UserPerpustakaan::where('nim', $request->nim)
+                    ->where('nama', $request->nama)
+                    ->first();
+
+        if (!$user) {
+
+            return response()->json([
+                'success' => false,
+                'message' => 'Login gagal'
+            ], 401);
+
+        }
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Login berhasil',
+            'data' => $user
+        ]);
+    }
+}
