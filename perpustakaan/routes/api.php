@@ -11,16 +11,6 @@ use App\Http\Controllers\API\RiwayatController;
 use App\Http\Controllers\API\PengembalianController;
 
 
-<<<<<<< Updated upstream
-// ================= USER LOGIN =================
-Route::post('/login-user', [LoginUserController::class, 'login']);
-
-// ================= ADMIN LOGIN =================
-Route::post('/login-admin', [LoginAdminController::class, 'login']);
-
-
-// ================= REGISTER ADMIN =================
-=======
 // ======================================================
 // PUBLIC ROUTES
 // ======================================================
@@ -29,7 +19,6 @@ Route::post('/login-admin', [LoginAdminController::class, 'login']);
 // ================= AUTH =================
 Route::post('/login-user', [LoginUserController::class, 'login']);
 Route::post('/login-admin', [LoginAdminController::class, 'login']);
->>>>>>> Stashed changes
 Route::post('/register-admin', [RegisterAdminController::class, 'register']);
 
 
@@ -41,15 +30,6 @@ Route::get('/bukus/search', [BukuController::class, 'search']);
 // detail buku
 Route::get('/bukus/{id}', [BukuController::class, 'show']);
 
-<<<<<<< Updated upstream
-Route::post('/bukus', [BukuController::class, 'store']);
-Route::put('/bukus/{id}', [BukuController::class, 'update']);
-Route::delete('/bukus/{id}', [BukuController::class, 'destroy']);
-
-// ================= Riwayat dan pengembalian =================
-Route::get('/riwayat/{id_user}', [RiwayatController::class, 'index']);
-Route::put('/pengembalian/{id}', [PengembalianController::class, 'kembalikan']);
-=======
 
 // ======================================================
 // PROTECTED ROUTES
@@ -88,4 +68,3 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/pengembalian/{id}', [PengembalianController::class, 'kembalikan']);
 
 });
->>>>>>> Stashed changes
