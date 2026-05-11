@@ -27,9 +27,12 @@ class LoginAdminController extends Controller
 
         }
 
+        $token = $admin->createToken('admin-token')->plainTextToken;
+
         return response()->json([
             'success' => true,
             'message' => 'Login admin berhasil',
+            'token' => $token,
             'data' => $admin
         ]);
     }
