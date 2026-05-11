@@ -27,9 +27,7 @@ Route::post('/register-admin', [RegisterAdminController::class, 'register']);
 
 // ================= BUKU =================
 Route::get('/bukus', [BukuController::class, 'index']);
-Route::get('/bukus/search', [BukuController::class, 'search']);
-Route::get('/bukus/{id}', [BukuController::class, 'show']);
 
-Route::post('/bukus', [BukuController::class, 'store']);
-Route::put('/bukus/{id}', [BukuController::class, 'update']);
-Route::delete('/bukus/{id}', [BukuController::class, 'destroy']);
+Route::get('/bukus/search', [BukuController::class, 'search']);
+
+Route::get('/bukus/{id}', [BukuController::class, 'show']);
