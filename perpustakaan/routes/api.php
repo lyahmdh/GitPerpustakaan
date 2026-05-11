@@ -16,7 +16,6 @@ Route::get('/user', function (Request $request) {
 // ================= USER LOGIN =================
 Route::post('/login-user', [LoginUserController::class, 'login']);
 
-
 // ================= ADMIN LOGIN =================
 Route::post('/login-admin', [LoginAdminController::class, 'login']);
 
