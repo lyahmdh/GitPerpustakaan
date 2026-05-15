@@ -33,6 +33,7 @@ class LoginAdminController extends Controller
             'success' => true,
             'message' => 'Login admin berhasil',
             'token' => $token,
+            'role' => $admin->role,
             'data' => $admin
         ]);
     }

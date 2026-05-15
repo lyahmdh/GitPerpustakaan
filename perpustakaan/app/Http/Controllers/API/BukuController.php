@@ -26,7 +26,7 @@ class BukuController extends Controller
 
         return response()->json([
             'success' => true,
-            'data' => $bukus
+            'data' => $buku
         ]);
     }
 
@@ -55,7 +55,7 @@ class BukuController extends Controller
     {
         $query = $request->query;
 
-        $bukus = Buku::where('judul', 'like', "%$query%")
+        $buku = Buku::where('judul', 'like', "%$query%")
                     ->orWhere('pengarang', 'like', "%$query%")
                     ->orWhere('kategori', 'like', "%$query%")
                     ->latest()
@@ -63,7 +63,7 @@ class BukuController extends Controller
 
         return response()->json([
             'success' => true,
-            'data' => $bukus
+            'data' => $buku
         ]);
     }
 }

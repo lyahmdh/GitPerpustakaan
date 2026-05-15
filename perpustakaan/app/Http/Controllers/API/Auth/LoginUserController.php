@@ -34,6 +34,7 @@ class LoginUserController extends Controller
             'success' => true,
             'message' => 'Login berhasil',
             'token' => $token,
+            'role' => $user->role,
             'data' => $user
         ]);
     }
