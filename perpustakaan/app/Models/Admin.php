@@ -2,20 +2,30 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Sanctum\HasApiTokens;
 
-class Admin extends Model
+class Admin extends Authenticatable
 {
+    use HasApiTokens;
+
     protected $table = 'admin';
 
     protected $fillable = [
         'username',
+        'password',
+        'role'
+    ];
+
+    protected $hidden = [
         'password'
     ];
 
-    // relasi ke peminjaman
     public function peminjaman()
     {
-        return $this->hasMany(Peminjaman::class, 'id_akun');
+        return $this->hasMany(
+            Peminjaman::class,
+            'id_akun'
+        );
     }
 }

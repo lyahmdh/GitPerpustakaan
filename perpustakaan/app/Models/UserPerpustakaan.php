@@ -2,22 +2,28 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Sanctum\HasApiTokens;
 
-class UserPerpustakaan extends Model
+class UserPerpustakaan extends Authenticatable
 {
+    use HasApiTokens;
+
     protected $table = 'user_perpustakaan';
 
     protected $primaryKey = 'id_user';
 
     protected $fillable = [
         'nim',
-        'nama'
+        'nama',
+        'role'
     ];
 
-    // relasi ke peminjaman
     public function peminjaman()
     {
-        return $this->hasMany(Peminjaman::class, 'id_user_pinjam');
+        return $this->hasMany(
+            Peminjaman::class,
+            'id_user_pinjam'
+        );
     }
 }
