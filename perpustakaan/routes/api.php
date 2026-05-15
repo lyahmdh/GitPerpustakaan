@@ -11,6 +11,13 @@ use App\Http\Controllers\API\BukuController;
 use App\Http\Controllers\API\PeminjamanController;
 use App\Http\Controllers\API\RiwayatController;
 use App\Http\Controllers\API\PengembalianController;
+use App\Http\Controllers\API\PeminjamanController;
+
+Route::post('/peminjaman', [PeminjamanController::class, 'store']);
+
+Route::get('/peminjaman', [PeminjamanController::class, 'index']);
+
+Route::get('/peminjaman/{id}', [PeminjamanController::class, 'show']);
 
 // ======================================================
 // PUBLIC ROUTES
@@ -142,4 +149,6 @@ Route::middleware([
         'kembalikan'
     ]);
 
-});
+// ================= Riwayat dan pengembalian =================
+Route::get('/riwayat/{id_user}', [RiwayatController::class, 'index']);
+Route::put('/pengembalian/{id}', [PengembalianController::class, 'kembalikan']);
